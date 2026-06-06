@@ -1,23 +1,23 @@
 ---
-"[package-name]": patch
+"<package-name>": patch
 ---
 
-<!-- Follow ../../standards/workflow/versioning.md when choosing the bump. -->
+# Summary
 
-## Summary
+<!-- Write the user-facing change in one or two sentences. -->
 
-[Describe the released change in one or two sentences.]
+Reference: [Versioning Standard](HANDBOOK_URL/standards/workflow/versioning.md)
 
-## User-Facing Impact
+<!-- Replace the package name and choose patch, minor, or major. -->
 
-- [What users can do now, what changed, or what was fixed.]
+## User Impact
+
+<!-- Explain what users can do now, what changed, or what was fixed. -->
 
 ## Migration Notes
 
-[Describe required user action, or write `None`.]
+<!-- Include required user action for breaking changes. Remove this section if it does not apply. -->
 
 ## Versioning Notes
 
-- Bump type: `[patch | minor | major]`
-- Stable breaking change: `[yes | no]`
-- Unstable-only change: `[yes | no]`
+<!-- Explain why the selected bump is patch, minor, or major when it is not obvious. -->
