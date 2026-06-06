@@ -1,6 +1,6 @@
 # vX.Y.Z
 
-Reference: [Release Standard](HANDBOOK_URL/standards/workflow/releases.md)
+Reference: [Release Standard](https://github.com/blazeshomida/handbook/blob/main/standards/workflow/releases.md)
 
 ## Highlights
 

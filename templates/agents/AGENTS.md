@@ -32,7 +32,7 @@
 - Summarize changed files, verification, and any remaining risk before handing
   work back.
 
-Reference: [Commit Standard](HANDBOOK_URL/standards/workflow/commits.md)
+Reference: [Commit Standard](https://github.com/blazeshomida/handbook/blob/main/standards/workflow/commits.md)
 
 ## Type Safety
 
@@ -41,7 +41,7 @@ Reference: [Commit Standard](HANDBOOK_URL/standards/workflow/commits.md)
 - Avoid `any`; fix types at the source when possible.
 - Keep unsafe casts local and justified by nearby runtime checks.
 
-Reference: [TypeScript Standard](HANDBOOK_URL/standards/code/typescript.md)
+Reference: [TypeScript Standard](https://github.com/blazeshomida/handbook/blob/main/standards/code/typescript.md)
 
 ## Documentation
 
@@ -50,7 +50,7 @@ Reference: [TypeScript Standard](HANDBOOK_URL/standards/code/typescript.md)
 - Omit comments that repeat the code.
 - Keep examples minimal, realistic, and focused on the documented behavior.
 
-Reference: [Code Documentation Standard](HANDBOOK_URL/standards/code/documentation.md)
+Reference: [Code Documentation Standard](https://github.com/blazeshomida/handbook/blob/main/standards/code/documentation.md)
 
 ## Testing And Checks
 
@@ -59,7 +59,7 @@ Reference: [Code Documentation Standard](HANDBOOK_URL/standards/code/documentati
   paths.
 - If a check is not run, say so and explain why.
 
-Reference: [Tooling Standard](HANDBOOK_URL/standards/tooling.md)
+Reference: [Tooling Standard](https://github.com/blazeshomida/handbook/blob/main/standards/tooling.md)
 
 ## Final Response
 

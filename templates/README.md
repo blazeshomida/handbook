@@ -3,7 +3,8 @@
 Templates are copyable files that help projects apply the handbook standards.
 
 Copy a template when a project needs the file shape. Replace placeholders before
-using the copied file, including `HANDBOOK_URL` links.
+using the copied file. Template links point back to the canonical handbook
+standards on GitHub.
 
 ## Available Templates
 

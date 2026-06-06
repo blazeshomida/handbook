@@ -2,7 +2,7 @@
 
 <!-- Explain the result of the change and why it matters. -->
 
-Reference: [Pull Request Standard](HANDBOOK_URL/standards/workflow/pull-requests.md)
+Reference: [Pull Request Standard](https://github.com/blazeshomida/handbook/blob/main/standards/workflow/pull-requests.md)
 
 ## Changes
 

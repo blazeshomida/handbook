@@ -6,7 +6,7 @@
 
 <!-- Write the user-facing change in one or two sentences. -->
 
-Reference: [Versioning Standard](HANDBOOK_URL/standards/workflow/versioning.md)
+Reference: [Versioning Standard](https://github.com/blazeshomida/handbook/blob/main/standards/workflow/versioning.md)
 
 <!-- Replace the package name and choose patch, minor, or major. -->
 

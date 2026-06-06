@@ -30,7 +30,8 @@ Use standards when deciding how to write or review something. Start with the
 standard that owns the decision, then follow links to related standards.
 
 Use templates when a project needs a copyable file. Replace placeholders after
-copying, including `HANDBOOK_URL` links.
+copying. Template links point back to the canonical handbook standards on
+GitHub.
 
 ## Boundaries
 
