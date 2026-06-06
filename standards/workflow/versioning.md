@@ -11,8 +11,9 @@ between versions and commit tags. It does not own the full release checklist,
 release notes template, or publishing process.
 
 Use [the commit standard](commits.md) for commit tags and title format. Use
-[the release standard](releases.md) for the release process. When it exists,
-use `templates/releases/changeset.md` for copyable change declarations.
+[the release standard](releases.md) for the release process. Use
+[the changeset template](../../templates/releases/changeset.md) for copyable
+change declarations.
 
 ## Semantic Versioning
 

@@ -12,8 +12,9 @@ commit title format, version meaning, or pull request structure.
 
 Use [the commit standard](commits.md) for commit title format and release commit
 constraints. Use [the versioning standard](versioning.md) for version meaning
-and change classification. When it exists, use
-`templates/releases/release-notes.md` for copyable release note structure.
+and change classification. Use
+[the release notes template](../../templates/releases/release-notes.md) for
+copyable release note structure.
 
 ## Release Checklist
 
