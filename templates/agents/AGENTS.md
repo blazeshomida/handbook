@@ -27,7 +27,7 @@
 - Inspect the current repo state before changing files.
 - Keep edits scoped to the requested task.
 - Prefer existing project patterns over new abstractions.
-- Do not rewrite stable files unless their contract changes.
+- Do not rewrite existing files unless the requested behavior requires it.
 - Do not revert user changes unless explicitly asked.
 - Summarize changed files, verification, and any remaining risk before handing
   work back.

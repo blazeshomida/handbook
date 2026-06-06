@@ -28,6 +28,10 @@ Reference: [Release Standard](HANDBOOK_URL/standards/workflow/releases.md)
 
 <!-- Give concrete upgrade steps. Remove this section if it does not apply. -->
 
+## Compatibility Notes
+
+<!-- Describe known risks, supported runtime changes, rollout concerns, or compatibility notes. Remove this section if it does not apply. -->
+
 ## Verification
 
 <!-- List release checks, artifact checks, smoke checks, and post-release verification. -->

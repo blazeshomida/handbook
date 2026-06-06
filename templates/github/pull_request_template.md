@@ -30,6 +30,10 @@ Reference: [Pull Request Standard](HANDBOOK_URL/standards/workflow/pull-requests
 
 <!-- Describe rollout, compatibility, data, security, or migration risk. Remove this section if it does not apply. -->
 
+## Linked Issues Or Decisions
+
+<!-- Link issues, discussions, specifications, incidents, or decisions that explain review context. Remove this section if it does not apply. -->
+
 ## Follow-Ups
 
 <!-- List intentionally deferred work. Remove this section if it does not apply. -->
@@ -45,4 +49,5 @@ Reference: [Pull Request Standard](HANDBOOK_URL/standards/workflow/pull-requests
 - [ ] Visual proof is included when useful.
 - [ ] Breaking changes and migration notes are explicit when needed.
 - [ ] Risk is visible when it changes review or rollout behavior.
+- [ ] Linked issues or decisions are relevant when included.
 - [ ] Follow-ups are concrete and intentionally deferred.
