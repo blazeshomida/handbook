@@ -1,33 +1,41 @@
-<!-- Follow ../../standards/workflow/releases.md when preparing release notes. -->
+# vX.Y.Z
 
-# [Project] [Version]
+Reference: [Release Standard](HANDBOOK_URL/standards/workflow/releases.md)
 
 ## Highlights
 
-- [Most important user-facing change.]
+<!-- Summarize the most important user-facing changes. -->
+
+- <!-- Add a highlight. -->
 
 ## Changes
 
-- [New capability, behavior change, or documentation improvement.]
+<!-- List notable compatible additions and improvements. -->
+
+- <!-- Add a change. -->
 
 ## Fixes
 
-- [Bug fix or compatibility fix.]
+<!-- List notable fixes. -->
+
+- <!-- Add a fix. -->
 
 ## Breaking Changes
 
-[Describe breaking changes and who must take action, or write `None`.]
+<!-- Explain incompatible changes and who is affected. Remove this section if it does not apply. -->
 
 ## Migration Notes
 
-[List upgrade steps, changed commands, renamed APIs, or compatibility notes.]
+<!-- Give concrete upgrade steps. Remove this section if it does not apply. -->
 
 ## Verification
 
-- [Release check, smoke test, publish confirmation, or artifact verification.]
+<!-- List release checks, artifact checks, smoke checks, and post-release verification. -->
+
+- <!-- Add a verification item. -->
 
 ## Links
 
-- [Changelog](...)
-- [Release tag](...)
-- [Related pull request or issue](...)
+<!-- Link changelog, docs, issues, pull requests, artifacts, or release tags when useful. -->
+
+- <!-- Add a link. -->
