@@ -3,43 +3,32 @@
 This repo is the source of truth for reusable engineering standards and copyable
 file templates.
 
-Use [PLAN.md](PLAN.md) for repo construction work: scope, order, file states,
-and milestone boundaries. Do not make handbook readers depend on `PLAN.md` to
-understand a standard or template.
-
 ## Scope Control
 
-- Work only on the milestone or file range explicitly assigned.
+- Work only on the file or topic range explicitly assigned.
 - Do not create project-template content in this repo.
-- Do not write standards or templates before their milestone is active.
-- Use `references/` only as supporting input; do not copy reference material wholesale.
-- When a dependency is missing, add a TODO only if the active file needs it to stay accurate.
+- Use local references only as supporting input; do not copy reference material
+  wholesale.
+- When a dependency is missing, add a TODO only if the active file needs it to
+  stay accurate.
 
 ## File Ownership
 
-- Each edited file must stay within its contract in `PLAN.md`.
 - Do not move a rule into a file that does not own it.
 - Keep README files as discovery surfaces, not as standards.
 - Keep templates as copyable files, not as new sources of policy.
 - Write standards and templates for people and agents who want to know how to
   write the thing named by the file.
-- Do not expose milestone, build-plan, or file-state language in reader-facing
-  standards and templates.
-- Leave stable files closed unless a dependency changes, review finds an issue, the contract changes, or the owner explicitly asks for a revision.
+- Leave existing files closed unless a dependency changes, review finds an
+  issue, or the owner explicitly asks for a revision.
 
 ## Editing Workflow
 
-Use the handbook workflow from `PLAN.md`:
-
-```txt
-contract -> draft -> light review -> targeted edits -> stable -> final review -> frozen
-```
-
-- Confirm the file contract before drafting.
 - Prefer targeted edits over full rewrites.
-- Do not rewrite an entire file unless its contract changes.
+- Do not rewrite an entire file unless the requested behavior requires it.
 - Use concise Markdown with practical examples only when examples are in scope.
-- Let final polish happen during integration or final review, not during every draft.
+- Before editing, summarize the planned file changes.
+- After editing, summarize changed files, review findings, and verification.
 
 ## Linking
 
@@ -50,14 +39,15 @@ contract -> draft -> light review -> targeted edits -> stable -> final review ->
 
 ## Review Expectations
 
-- Run light review after each file or small dependency group.
+- Run light review after each file or small dependency group when changing
+  policy or templates.
 - Light review checks scope drift, obvious duplication, contradictions, missing cross-links, and examples that conflict with existing standards.
-- Do not use light review for broad rewrites, exhaustive prose polish, or new sections outside the file contract.
-- Run final review only after all standards and templates exist.
+- Do not use light review for broad rewrites, exhaustive prose polish, or
+  unrelated new sections.
 
 ## Subagents
 
-- Use subagents only at review steps where the active instructions allow them.
+- Use subagents only when the user explicitly allows them.
 - Subagents must be read-only unless the owner explicitly grants write permission.
 - Do not spawn subagents during drafting.
 - Wait for all subagents before applying review edits.
