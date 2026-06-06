@@ -2,68 +2,70 @@
 
 ## Project Overview
 
-[Describe what this project builds, who it is for, and the main runtime or
-framework.]
+<!-- Replace this with the project purpose, product surface, and important ownership boundaries. -->
 
 ## Commands
 
-Use the project package manager and runtime.
+<!-- Replace or remove commands that do not apply. Prefer exact project commands. -->
 
 ```sh
-[install command]
-[check command]
-[test command]
-[build command]
-```
+# Install dependencies
+<install command>
 
-Document any required environment variables, local services, or generated files
-near the command that needs them.
+# Run checks
+<check command>
+
+# Run tests
+<test command>
+
+# Run the app or package locally
+<dev command>
+```
 
 ## Workflow
 
-- Inspect the current files before proposing or editing code.
-- Keep changes scoped to the requested task.
+- Inspect the current repo state before changing files.
+- Keep edits scoped to the requested task.
 - Prefer existing project patterns over new abstractions.
-- Do not rewrite stable files unless their behavior or contract changes.
-- Preserve user changes that are unrelated to the task.
-- Link to the owning standard instead of duplicating policy.
+- Do not rewrite stable files unless their contract changes.
+- Do not revert user changes unless explicitly asked.
+- Summarize changed files, verification, and any remaining risk before handing
+  work back.
 
-## Code Expectations
+Reference: [Commit Standard](HANDBOOK_URL/standards/workflow/commits.md)
 
-- Follow the project language and tooling choices.
-- Keep TypeScript strict and fix unsafe types at the source.
-- Validate untrusted runtime boundaries before using the value.
-- Keep comments focused on constraints, tradeoffs, side effects, and failure
-  modes.
-- Document public APIs when names and types do not fully explain correct use.
+## Type Safety
 
-## Checks
+- Prefer TypeScript for application and library code.
+- Keep untrusted values at boundaries until they are validated or narrowed.
+- Avoid `any`; fix types at the source when possible.
+- Keep unsafe casts local and justified by nearby runtime checks.
 
-Before finishing, run the smallest checks that prove the change:
+Reference: [TypeScript Standard](HANDBOOK_URL/standards/code/typescript.md)
 
-```sh
-[format or lint command]
-[typecheck command]
-[test command]
-```
+## Documentation
 
-If a check cannot be run, say exactly which check was skipped and why.
+- Document public API behavior, constraints, side effects, and failure modes
+  when names and signatures are not enough.
+- Omit comments that repeat the code.
+- Keep examples minimal, realistic, and focused on the documented behavior.
+
+Reference: [Code Documentation Standard](HANDBOOK_URL/standards/code/documentation.md)
+
+## Testing And Checks
+
+- Run the smallest reliable checks that cover the change.
+- Run broader checks when touching shared behavior, public APIs, or release
+  paths.
+- If a check is not run, say so and explain why.
+
+Reference: [Tooling Standard](HANDBOOK_URL/standards/tooling.md)
 
 ## Final Response
 
-Final responses should include:
+When work is complete, include:
 
 - What changed.
 - What was verified.
-- Any files or follow-ups the maintainer should review.
-- Any checks that were not run.
-
-## Related Standards
-
-- [Tooling](../../standards/tooling.md)
-- [Code documentation](../../standards/code/documentation.md)
-- [JavaScript](../../standards/code/javascript.md)
-- [TypeScript](../../standards/code/typescript.md)
-- [JSDoc](../../standards/code/jsdoc.md)
-- [Commits](../../standards/workflow/commits.md)
-- [Pull requests](../../standards/workflow/pull-requests.md)
+- Anything not run or not completed.
+- Any follow-up that is required before merge or release.
