@@ -1,42 +1,48 @@
-<!-- Follow ../../standards/workflow/pull-requests.md when writing this pull request. -->
+# Summary
 
-## Summary
+<!-- Explain the result of the change and why it matters. -->
 
-[Explain the result of the change and why it matters.]
+Reference: [Pull Request Standard](HANDBOOK_URL/standards/workflow/pull-requests.md)
 
 ## Changes
 
-- [Important reviewable change.]
-- [Important reviewable change.]
+<!-- List the important reviewable changes. Do not turn this into a file list. -->
+
+- <!-- Add a reviewable change. -->
 
 ## Screenshots Or Recordings
 
-[Add screenshots, recordings, terminal output, or before-and-after examples when
-they help review. Delete this section when it does not apply.]
+<!-- Add screenshots, recordings, terminal output, or before/after examples when visual proof helps review. Remove this section if it does not apply. -->
 
 ## Testing
 
-```sh
-[command]
-```
+<!-- Include exact commands and relevant manual checks. If not run, say why. -->
 
-- [Manual check or relevant output.]
+```sh
+<verification command>
+```
 
 ## Breaking Changes
 
-[Describe breaking changes and migration notes, or write `None`.]
+<!-- Call out breaking changes and migration notes. Remove this section if it does not apply. -->
 
-## Risks And Follow-Ups
+## Risk
 
-- [Risk, rollout note, or intentionally deferred follow-up.]
+<!-- Describe rollout, compatibility, data, security, or migration risk. Remove this section if it does not apply. -->
+
+## Follow-Ups
+
+<!-- List intentionally deferred work. Remove this section if it does not apply. -->
+
+- <!-- Add a follow-up. -->
 
 ## Checklist
 
 - [ ] Title follows `<tag>(<scope[,scope...]>): <gitmoji> <title>`.
 - [ ] Summary explains the result of the change.
-- [ ] Important changes are listed as reviewable bullets.
-- [ ] Verification is exact, repeatable, or explicitly explained as not run.
-- [ ] Visual proof is included when it helps review.
-- [ ] Breaking changes, migration notes, and risks are visible when present.
+- [ ] Important changes are listed.
+- [ ] Verification is exact or missing verification is explained.
+- [ ] Visual proof is included when useful.
+- [ ] Breaking changes and migration notes are explicit when needed.
+- [ ] Risk is visible when it changes review or rollout behavior.
 - [ ] Follow-ups are concrete and intentionally deferred.
-- [ ] Description matches the final diff.
