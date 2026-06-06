@@ -107,9 +107,9 @@ Use these tags:
 | `style` | Formatting or lint only | Optional | Patch |
 | `chore` | Tooling, configuration, automation, or meta | Optional | Patch |
 
-This standard defines commit-level version pressure. The future
-[release standard](releases.md) owns the full release algorithm, and the future
-versioning standard owns full version meaning.
+This standard defines commit-level version pressure.
+[The versioning standard](versioning.md) owns full version meaning, and
+[the release standard](releases.md) owns the full release algorithm.
 
 ## Gitmoji Mapping
 
@@ -267,7 +267,7 @@ Release commits:
 - Must not affect version bump calculation.
 - Must be the only normal place where commit text names a release version.
 
-The future [release standard](releases.md) owns the full release process.
+[The release standard](releases.md) owns the full release process.
 
 ## BATMAN Carve-Out
 

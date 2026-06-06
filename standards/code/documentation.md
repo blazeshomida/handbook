@@ -94,7 +94,7 @@ points, document the details that affect correct use:
 - Stability or compatibility constraints.
 
 Do not require public documentation to restate obvious names or types. Keep
-syntax-specific rules in the future JSDoc standard.
+syntax-specific rules in [the JSDoc standard](jsdoc.md).
 
 ## Constraints And Tradeoffs
 
@@ -162,10 +162,11 @@ Use links instead of repeating rules owned by another standard.
 
 - Link to [the tooling standard](../tooling.md) for formatter, linter, runtime,
   and toolchain choices.
-- When they exist, link to the JavaScript and TypeScript standards for
-  language-specific implementation style.
-- When it exists, link to the JSDoc standard for tag syntax and API
-  documentation mechanics.
+- Link to [the JavaScript standard](javascript.md) and
+  [the TypeScript standard](typescript.md) for language-specific implementation
+  style.
+- Link to [the JSDoc standard](jsdoc.md) for tag syntax and API documentation
+  mechanics.
 
 Do not add a link when a short local rule is clearer than making the reader
 leave the file.

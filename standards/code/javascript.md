@@ -280,7 +280,8 @@ for (const user of users) {
 ```
 
 Follow [the code documentation standard](documentation.md) for broader
-documentation judgment. Keep JSDoc mechanics in the future JSDoc standard.
+documentation judgment. Keep JSDoc mechanics in
+[the JSDoc standard](jsdoc.md).
 
 ## File Organization
 

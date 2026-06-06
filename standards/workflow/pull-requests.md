@@ -14,9 +14,9 @@ algorithm, or the release process. Follow the active file contract in
 [PLAN.md](../../PLAN.md).
 
 Use [the commit standard](commits.md) for commit and pull request title format.
-When it exists, use `standards/workflow/versioning.md` for version-impact
-details. When it exists, use `templates/github/pull_request_template.md` for the
-copyable GitHub form.
+Use [the versioning standard](versioning.md) for version-impact details. When
+it exists, use `templates/github/pull_request_template.md` for the copyable
+GitHub form.
 
 ## Core Requirements
 
