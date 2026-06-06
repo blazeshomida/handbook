@@ -2,15 +2,14 @@
 
 ## Purpose
 
-Use this standard to write runtime-agnostic JavaScript patterns for JavaScript
-and TypeScript projects.
+Use this standard when writing runtime-agnostic JavaScript patterns for
+JavaScript and TypeScript projects.
 
-This file owns naming, modules, functions, async code, errors, nullish values,
-object and array patterns, iteration, general comments, file organization, and
+It covers naming, modules, functions, async code, errors, nullish values, object
+and array patterns, iteration, general comments, file organization, and
 runtime-agnostic examples. It does not own TypeScript-only type rules, JSDoc
 mechanics, formatter or linter choices, Node-specific APIs, Deno-specific APIs,
-or React-specific conventions. Follow the active file contract in
-[PLAN.md](../../PLAN.md).
+or React-specific conventions.
 
 Use [the tooling standard](../tooling.md) for formatter, linter, runtime, and
 toolchain choices.

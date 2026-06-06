@@ -5,11 +5,10 @@
 Releases turn reviewed changes into versioned artifacts users can trust.
 
 Use this standard to run and review releases after version impact has already
-been classified. This file owns the release checklist, changelog expectations,
+been classified. It covers the release checklist, changelog expectations,
 release notes expectations, release tags, publishing expectations, release
 artifacts, prerelease flow, and post-release verification. It does not own
-commit title format, version meaning, or pull request structure. Follow the
-active file contract in [PLAN.md](../../PLAN.md).
+commit title format, version meaning, or pull request structure.
 
 Use [the commit standard](commits.md) for commit title format and release commit
 constraints. Use [the versioning standard](versioning.md) for version meaning

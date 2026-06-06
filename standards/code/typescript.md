@@ -5,12 +5,13 @@
 Use this standard for TypeScript-specific rules that extend
 [the JavaScript standard](javascript.md).
 
-This file owns strict TypeScript, avoiding `any`, avoiding unsafe casts, fixing
-types at the source, `unknown` at boundaries, runtime validation at boundaries,
-`satisfies`, type imports and exports, generics, discriminated unions, and public
-API typing. It does not own general JavaScript style, formatter or linter
-choices, React-specific conventions, JSDoc mechanics, or long TypeScript
-tutorials. Follow the active file contract in [PLAN.md](../../PLAN.md).
+Use this standard when writing TypeScript APIs, boundary types, and type-driven
+control flow. It covers strict TypeScript, avoiding `any`, avoiding unsafe
+casts, fixing types at the source, `unknown` at boundaries, runtime validation
+at boundaries, `satisfies`, type imports and exports, generics, discriminated
+unions, and public API typing. It does not own general JavaScript style,
+formatter or linter choices, React-specific conventions, JSDoc mechanics, or
+long TypeScript tutorials.
 
 Use [the tooling standard](../tooling.md) for TypeScript tooling choices and
 [the code documentation standard](documentation.md) for public API documentation

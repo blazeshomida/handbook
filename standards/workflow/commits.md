@@ -11,11 +11,11 @@ This standard defines one commit format for humans and automated agents.
 Commits should make intent, affected scope, and release pressure visible without
 requiring a reader to inspect the full diff.
 
-This file owns commit title format, allowed tags, scope rules, gitmoji mapping,
-commit body rules, breaking change rules, release commit constraints, and the
-commit review checklist. It does not own the full release algorithm, full
-versioning rules, pull request structure, or tooling setup. Follow the active
-file contract in [PLAN.md](../../PLAN.md).
+Use this standard when writing or reviewing commit messages. It covers commit
+title format, allowed tags, scope rules, gitmoji mapping, commit body rules,
+breaking change rules, release commit constraints, and the commit review
+checklist. It does not own the full release algorithm, full versioning rules,
+pull request structure, or tooling setup.
 
 ## Core Format
 

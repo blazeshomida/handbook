@@ -1,6 +1,11 @@
 # Agent Instructions
 
-This repo is the source of truth for reusable engineering standards and copyable file templates. Follow [PLAN.md](PLAN.md) as the controlling plan for scope, order, file states, and milestone boundaries.
+This repo is the source of truth for reusable engineering standards and copyable
+file templates.
+
+Use [PLAN.md](PLAN.md) for repo construction work: scope, order, file states,
+and milestone boundaries. Do not make handbook readers depend on `PLAN.md` to
+understand a standard or template.
 
 ## Scope Control
 
@@ -16,6 +21,10 @@ This repo is the source of truth for reusable engineering standards and copyable
 - Do not move a rule into a file that does not own it.
 - Keep README files as discovery surfaces, not as standards.
 - Keep templates as copyable files, not as new sources of policy.
+- Write standards and templates for people and agents who want to know how to
+  write the thing named by the file.
+- Do not expose milestone, build-plan, or file-state language in reader-facing
+  standards and templates.
 - Leave stable files closed unless a dependency changes, review finds an issue, the contract changes, or the owner explicitly asks for a revision.
 
 ## Editing Workflow

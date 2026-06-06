@@ -6,10 +6,9 @@ Code documentation helps a capable developer understand behavior, constraints,
 tradeoffs, failures, and public contracts without reconstructing local history.
 
 Use this standard for code comments, public API documentation, and examples that
-live near code. This file owns general documentation judgment. It does not own
-JSDoc tag syntax, JavaScript style, TypeScript type-safety rules, tooling
-choices, or README writing. Follow the active file contract in
-[PLAN.md](../../PLAN.md).
+live near code. Use it to decide what documentation a reader needs before
+choosing syntax-specific rules. It does not own JSDoc tag syntax, JavaScript
+style, TypeScript type-safety rules, tooling choices, or README writing.
 
 ## Core Standard
 

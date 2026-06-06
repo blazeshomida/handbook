@@ -7,11 +7,11 @@ Pull requests are the review interface for a change.
 Use a pull request to explain what changed, why it matters, how it was verified,
 and what reviewers should inspect before the change becomes project history.
 
-This file owns pull request size, titles, bodies, visual proof, testing notes,
-linked issues, reviewability, breaking change notes, and when not to open or
-mark a pull request ready. It does not own commit format, the versioning
-algorithm, or the release process. Follow the active file contract in
-[PLAN.md](../../PLAN.md).
+Use this standard when writing, reviewing, or deciding whether to open a pull
+request. It covers pull request size, titles, bodies, visual proof, testing
+notes, linked issues, reviewability, breaking change notes, and when not to open
+or mark a pull request ready. It does not own commit format, the versioning
+algorithm, or the release process.
 
 Use [the commit standard](commits.md) for commit and pull request title format.
 Use [the versioning standard](versioning.md) for version-impact details. When

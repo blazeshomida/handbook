@@ -5,11 +5,10 @@
 Versions communicate compatibility and change impact.
 
 Use this standard to classify changes and understand semantic version meaning.
-This file owns semantic versioning meaning, patch/minor/major classification,
-prerelease versions, breaking changes, unstable surface area, versioning
-examples, and the relationship between versions and commit tags. It does not own
-the full release checklist, release notes template, or publishing process.
-Follow the active file contract in [PLAN.md](../../PLAN.md).
+It covers patch, minor, and major classification; prerelease versions; breaking
+changes; unstable surface area; versioning examples; and the relationship
+between versions and commit tags. It does not own the full release checklist,
+release notes template, or publishing process.
 
 Use [the commit standard](commits.md) for commit tags and title format. Use
 [the release standard](releases.md) for the release process. When it exists,

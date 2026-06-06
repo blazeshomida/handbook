@@ -5,11 +5,11 @@
 Use JSDoc to make public JavaScript and TypeScript APIs easier to understand in
 source, editor hovers, and generated API documentation.
 
-This file owns approved and discouraged JSDoc tags, formatting conventions,
+Use this standard when writing JSDoc blocks for public APIs and related internal
+APIs. It covers approved and discouraged JSDoc tags, formatting conventions,
 examples, public API usage, deprecations, internal API usage, and links. It does
 not own general documentation philosophy, general JavaScript style, TypeScript
-type-safety rules, or formatter and linter choices. Follow the active file
-contract in [PLAN.md](../../PLAN.md).
+type-safety rules, or formatter and linter choices.
 
 Use [the code documentation standard](documentation.md) for documentation
 judgment, [the JavaScript standard](javascript.md) for JavaScript patterns, and

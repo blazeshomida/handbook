@@ -2,12 +2,12 @@
 
 ## Purpose
 
-Use this standard to choose project tooling, formatting, linting, testing, build
-tools, and common platform dependencies.
+Use this standard when choosing project tooling, formatting, linting, testing,
+build tools, and common platform dependencies.
 
-This file owns toolchain choices and boundaries. It does not define JavaScript
-style, TypeScript type rules, JSDoc tags, commit format, or release process.
-Follow the active file contract in [PLAN.md](../PLAN.md).
+It covers default tool preferences and tooling boundaries. It does not define
+JavaScript style, TypeScript type rules, JSDoc tags, commit format, or release
+process.
 
 ## Default Language And Runtime
 
