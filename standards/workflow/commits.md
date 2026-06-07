@@ -4,18 +4,11 @@
 
 Commits are the structured interface to change history.
 
-Write commits so reviewers, maintainers, future debuggers, release automation,
-changelog generators, and agents can understand what changed and why it matters.
-This standard defines one commit format for humans and automated agents.
+Write commits so reviewers, maintainers, future debuggers, release automation, changelog generators, and agents can understand what changed and why it matters. This standard defines one commit format for humans and automated agents.
 
-Commits should make intent, affected scope, and release pressure visible without
-requiring a reader to inspect the full diff.
+Commits should make intent, affected scope, and release pressure visible without requiring a reader to inspect the full diff.
 
-Use this standard when writing or reviewing commit messages. It covers commit
-title format, allowed tags, scope rules, gitmoji mapping, commit body rules,
-breaking change rules, release commit constraints, and the commit review
-checklist. It does not own the full release algorithm, full versioning rules,
-pull request structure, or tooling setup.
+Use this standard when writing or reviewing commit messages. It covers commit title format, allowed tags, scope rules, gitmoji mapping, commit body rules, breaking change rules, release commit constraints, and the commit review checklist. It does not own the full release algorithm, full versioning rules, pull request structure, or tooling setup.
 
 ## Core Format
 
@@ -25,9 +18,7 @@ Every commit title must use this format:
 <tag>(<scope[,scope...]>): <gitmoji> <title>
 ```
 
-Git-history changelog tooling should parse this format. Configure changelog
-tools around the standard instead of changing commit titles to fit a default
-parser.
+Git-history changelog tooling should parse this format. Configure changelog tools around the standard instead of changing commit titles to fit a default parser.
 
 Examples:
 
@@ -46,8 +37,7 @@ feat(parser): ✨ add incremental parsing
 - 🧪 cover partial token boundaries
 ```
 
-Do not use paragraphs in commit bodies. If the change needs more explanation,
-use concise bullets.
+Do not use paragraphs in commit bodies. If the change needs more explanation, use concise bullets.
 
 ## Components
 
@@ -55,32 +45,27 @@ use concise bullets.
 
 The tag describes the kind of change and its semantic version pressure.
 
-Use the tag that matches the user-visible or maintainer-visible effect of the
-change. Do not hide breaking changes under lower-impact tags.
+Use the tag that matches the user-visible or maintainer-visible effect of the change. Do not hide breaking changes under lower-impact tags.
 
 ### `scope`
 
 The scope answers: what does this change apply to?
 
-Use scopes for packages, modules, subsystems, directories, features, or `*` for
-repo-wide changes.
+Use scopes for packages, modules, subsystems, directories, features, or `*` for repo-wide changes.
 
 ### `gitmoji`
 
 The gitmoji is a scan marker for intent.
 
-Each commit title must include exactly one primary gitmoji. The gitmoji must
-match the selected tag.
+Each commit title must include exactly one primary gitmoji. The gitmoji must match the selected tag.
 
-Body bullets may use gitmoji when the marker helps scan mixed changes, but they
-do not replace clear text.
+Body bullets may use gitmoji when the marker helps scan mixed changes, but they do not replace clear text.
 
 ### `title`
 
 The title is a short imperative summary.
 
-Use present tense. Do not end with punctuation unless the punctuation is part of
-a literal name.
+Use present tense. Do not end with punctuation unless the punctuation is part of a literal name.
 
 ```txt
 Avoid:
@@ -94,59 +79,55 @@ fix(parser): 🐛 handle empty input
 
 Use these tags:
 
-| Tag | Purpose | Scope | Version pressure |
-| --- | --- | --- | --- |
-| `BREAKING` | Incompatible API or behavior change | Required | Major |
-| `feat` | New feature | Required | Minor |
-| `fix` | Bug fix | Required | Patch |
-| `perf` | Performance improvement | Required | Patch |
-| `deprecation` | Deprecate an existing API | Required | Patch |
-| `docs` | Documentation only | Optional | Patch |
-| `refactor` | Non-functional code change | Optional | Patch |
-| `test` | Tests only | Optional | Patch |
-| `style` | Formatting or lint only | Optional | Patch |
-| `chore` | Tooling, configuration, automation, or meta | Optional | Patch |
+| Tag           | Purpose                                     | Scope    | Version pressure |
+| ------------- | ------------------------------------------- | -------- | ---------------- |
+| `BREAKING`    | Incompatible API or behavior change         | Required | Major            |
+| `feat`        | New feature                                 | Required | Minor            |
+| `fix`         | Bug fix                                     | Required | Patch            |
+| `perf`        | Performance improvement                     | Required | Patch            |
+| `deprecation` | Deprecate an existing API                   | Required | Patch            |
+| `docs`        | Documentation only                          | Optional | Patch            |
+| `refactor`    | Non-functional code change                  | Optional | Patch            |
+| `test`        | Tests only                                  | Optional | Patch            |
+| `style`       | Formatting or lint only                     | Optional | Patch            |
+| `chore`       | Tooling, configuration, automation, or meta | Optional | Patch            |
 
-This standard defines commit-level version pressure.
-[The versioning standard](versioning.md) owns full version meaning, and
-[the release standard](releases.md) owns the full release algorithm.
+This standard defines commit-level version pressure. [The versioning standard](versioning.md) owns full version meaning, and [the release standard](releases.md) owns the full release algorithm.
 
 ## Gitmoji Mapping
 
 Use one primary gitmoji in the title. The selected gitmoji must match the tag.
 
-| Gitmoji | Code | Intent | Tag |
-| --- | --- | --- | --- |
-| 💥 | `:boom:` | Breaking change | `BREAKING` |
-| ✨ | `:sparkles:` | New feature | `feat` |
-| 🐛 | `:bug:` | Bug fix | `fix` |
-| 🔥 | `:fire:` | Critical hotfix | `fix` |
-| 🔒 | `:lock:` | Security fix | `fix` |
-| ⚡ | `:zap:` | Performance improvement | `perf` |
-| 📝 | `:memo:` | Documentation | `docs` |
-| ♻️ | `:recycle:` | Refactor | `refactor` |
-| 🚚 | `:truck:` | Move or rename | `refactor` |
-| 🗑️ | `:wastebasket:` | Remove non-breaking code or files | `refactor` |
-| 🧪 | `:test_tube:` | Tests | `test` |
-| 🎨 | `:art:` | Formatting | `style` |
-| 🚨 | `:rotating_light:` | Lint or warnings | `style` |
-| 🔧 | `:wrench:` | Configuration | `chore` |
-| 🔨 | `:hammer:` | Scripts or tooling | `chore` |
-| 👷 | `:construction_worker:` | CI or automation | `chore` |
-| 📦 | `:package:` | Packaging or build output | `chore` |
-| ⬆️ | `:arrow_up:` | Upgrade dependency | `chore` |
-| ⬇️ | `:arrow_down:` | Downgrade dependency | `chore` |
-| ➕ | `:heavy_plus_sign:` | Add dependency | `chore` |
-| ➖ | `:heavy_minus_sign:` | Remove dependency | `chore` |
-| 📌 | `:pushpin:` | Pin dependency | `chore` |
-| 🔀 | `:twisted_rightwards_arrows:` | Merge | `chore` |
-| ⏪ | `:rewind:` | Revert | `chore` |
-| 🎉 | `:tada:` | Project initialization or automated release | `chore` |
-| 🦇 | `:bat:` | Empty or novelty pre-history commit | `chore` |
+| Gitmoji | Code                          | Intent                                      | Tag        |
+| ------- | ----------------------------- | ------------------------------------------- | ---------- |
+| 💥      | `:boom:`                      | Breaking change                             | `BREAKING` |
+| ✨      | `:sparkles:`                  | New feature                                 | `feat`     |
+| 🐛      | `:bug:`                       | Bug fix                                     | `fix`      |
+| 🔥      | `:fire:`                      | Critical hotfix                             | `fix`      |
+| 🔒      | `:lock:`                      | Security fix                                | `fix`      |
+| ⚡      | `:zap:`                       | Performance improvement                     | `perf`     |
+| 📝      | `:memo:`                      | Documentation                               | `docs`     |
+| ♻️      | `:recycle:`                   | Refactor                                    | `refactor` |
+| 🚚      | `:truck:`                     | Move or rename                              | `refactor` |
+| 🗑️      | `:wastebasket:`               | Remove non-breaking code or files           | `refactor` |
+| 🧪      | `:test_tube:`                 | Tests                                       | `test`     |
+| 🎨      | `:art:`                       | Formatting                                  | `style`    |
+| 🚨      | `:rotating_light:`            | Lint or warnings                            | `style`    |
+| 🔧      | `:wrench:`                    | Configuration                               | `chore`    |
+| 🔨      | `:hammer:`                    | Scripts or tooling                          | `chore`    |
+| 👷      | `:construction_worker:`       | CI or automation                            | `chore`    |
+| 📦      | `:package:`                   | Packaging or build output                   | `chore`    |
+| ⬆️      | `:arrow_up:`                  | Upgrade dependency                          | `chore`    |
+| ⬇️      | `:arrow_down:`                | Downgrade dependency                        | `chore`    |
+| ➕      | `:heavy_plus_sign:`           | Add dependency                              | `chore`    |
+| ➖      | `:heavy_minus_sign:`          | Remove dependency                           | `chore`    |
+| 📌      | `:pushpin:`                   | Pin dependency                              | `chore`    |
+| 🔀      | `:twisted_rightwards_arrows:` | Merge                                       | `chore`    |
+| ⏪      | `:rewind:`                    | Revert                                      | `chore`    |
+| 🎉      | `:tada:`                      | Project initialization or automated release | `chore`    |
+| 🦇      | `:bat:`                       | Empty or novelty pre-history commit         | `chore`    |
 
-Tooling may reject commits when the tag and gitmoji do not match. If a project
-automates commit validation, choose tooling according to
-[the tooling standard](../tooling.md).
+Tooling may reject commits when the tag and gitmoji do not match. If a project automates commit validation, choose tooling according to [the tooling standard](../tooling.md).
 
 ```txt
 Avoid:
@@ -160,8 +141,7 @@ docs(guides): 📝 add README guide
 
 Use the smallest useful scope.
 
-Single-package repositories may use logical modules, subsystems, directories, or
-feature areas.
+Single-package repositories may use logical modules, subsystems, directories, or feature areas.
 
 ```txt
 feat(parser): ✨ add streaming mode
@@ -169,8 +149,7 @@ feat(core/parser): ✨ add incremental tokenizer
 docs(guides): 📝 add README guide
 ```
 
-Multi-package repositories should use workspace package names when a change
-affects packages independently.
+Multi-package repositories should use workspace package names when a change affects packages independently.
 
 ```txt
 fix(core,cli): 🐛 handle empty input
@@ -204,13 +183,11 @@ Do:
 feat(unstable/parser): ✨ add draft streaming API
 ```
 
-The `unstable` modifier signals patch-only release impact. It does not make an
-invalid commit valid, and it does not hide breaking changes to stable APIs.
+The `unstable` modifier signals patch-only release impact. It does not make an invalid commit valid, and it does not hide breaking changes to stable APIs.
 
 ## Body Rules
 
-Use a body when the commit changes multiple concerns, carries risk, or needs
-more detail than the title can hold.
+Use a body when the commit changes multiple concerns, carries risk, or needs more detail than the title can hold.
 
 Body rules:
 
@@ -238,9 +215,7 @@ docs(guides): 📝 add writing guides
 
 Breaking changes must use `BREAKING` in the title.
 
-Do not rely on the body to reveal a breaking change. A reader scanning history
-or a release tool calculating version impact must see the breaking change from
-the title.
+Do not rely on the body to reveal a breaking change. A reader scanning history or a release tool calculating version impact must see the breaking change from the title.
 
 ```txt
 Avoid:
@@ -271,9 +246,7 @@ Release commits:
 
 ## BATMAN Carve-Out
 
-The bat emoji is allowed only for empty or novelty pre-history commits with no
-meaningful project content. If the first commit adds real code, documentation,
-configuration, or project structure, use the normal tag and gitmoji.
+The bat emoji is allowed only for empty or novelty pre-history commits with no meaningful project content. If the first commit adds real code, documentation, configuration, or project structure, use the normal tag and gitmoji.
 
 ```txt
 chore(meta): 🦇 BATMAN

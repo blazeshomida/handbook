@@ -2,13 +2,9 @@
 
 ## Purpose
 
-Code documentation helps a capable developer understand behavior, constraints,
-tradeoffs, failures, and public contracts without reconstructing local history.
+Code documentation helps a capable developer understand behavior, constraints, tradeoffs, failures, and public contracts without reconstructing local history.
 
-Use this standard for code comments, public API documentation, and examples that
-live near code. Use it to decide what documentation a reader needs before
-choosing syntax-specific rules. It does not own JSDoc tag syntax, JavaScript
-style, TypeScript type-safety rules, tooling choices, or README writing.
+Use this standard for code comments, public API documentation, and examples that live near code. Use it to decide what documentation a reader needs before choosing syntax-specific rules. It does not own JSDoc tag syntax, JavaScript style, TypeScript type-safety rules, tooling choices, or README writing.
 
 ## Core Standard
 
@@ -26,8 +22,7 @@ Do not document implementation steps that the code already states clearly.
 
 ## When To Document
 
-Add documentation when it helps a future reader make a correct change, call an
-API correctly, or understand a non-obvious constraint.
+Add documentation when it helps a future reader make a correct change, call an API correctly, or understand a non-obvious constraint.
 
 Document code when it exposes:
 
@@ -40,14 +35,11 @@ Document code when it exposes:
 - A tradeoff that was chosen over another plausible design.
 - An example that prevents a likely misuse.
 
-Prefer documentation at the boundary where the reader needs the information.
-Document public behavior near public APIs. Document local tradeoffs near the
-code that depends on the tradeoff.
+Prefer documentation at the boundary where the reader needs the information. Document public behavior near public APIs. Document local tradeoffs near the code that depends on the tradeoff.
 
 ## When Not To Comment
 
-Omit comments that only repeat code, translate syntax into prose, or preserve
-history that no longer affects the reader.
+Omit comments that only repeat code, translate syntax into prose, or preserve history that no longer affects the reader.
 
 ```ts
 // Avoid:
@@ -55,8 +47,7 @@ history that no longer affects the reader.
 retryCount += 1;
 ```
 
-Prefer clearer names, smaller functions, or more direct control flow before
-adding a comment to explain confusing code.
+Prefer clearer names, smaller functions, or more direct control flow before adding a comment to explain confusing code.
 
 ```ts
 // Avoid:
@@ -71,16 +62,13 @@ if (userPermissions.includes("import")) {
 }
 ```
 
-Use a comment only when the important context cannot be made obvious through the
-code shape itself.
+Use a comment only when the important context cannot be made obvious through the code shape itself.
 
 ## Public APIs
 
-Public APIs should explain behavior that names and signatures do not fully
-communicate.
+Public APIs should explain behavior that names and signatures do not fully communicate.
 
-For public functions, classes, types, constants, modules, and package entry
-points, document the details that affect correct use:
+For public functions, classes, types, constants, modules, and package entry points, document the details that affect correct use:
 
 - What the API does.
 - When to use it.
@@ -92,13 +80,11 @@ points, document the details that affect correct use:
 - Side effects and mutation.
 - Stability or compatibility constraints.
 
-Do not require public documentation to restate obvious names or types. Keep
-syntax-specific rules in [the JSDoc standard](jsdoc.md).
+Do not require public documentation to restate obvious names or types. Keep syntax-specific rules in [the JSDoc standard](jsdoc.md).
 
 ## Constraints And Tradeoffs
 
-Document constraints when they limit valid usage or explain why obvious
-alternatives are unsafe.
+Document constraints when they limit valid usage or explain why obvious alternatives are unsafe.
 
 ```ts
 // Keep batches below 500 rows. Larger batches increase validation memory enough
@@ -106,8 +92,7 @@ alternatives are unsafe.
 const maxBatchSize = 500;
 ```
 
-Document tradeoffs when the code intentionally chooses one imperfect option over
-another.
+Document tradeoffs when the code intentionally chooses one imperfect option over another.
 
 ```ts
 // This cache is process-local. Cross-worker invalidation would add network I/O
@@ -115,8 +100,7 @@ another.
 const statusCache = new Map<string, Status>();
 ```
 
-Avoid comments that only record the author's process or a past investigation.
-Keep the current reason and consequence.
+Avoid comments that only record the author's process or a past investigation. Keep the current reason and consequence.
 
 ## Failure Documentation
 
@@ -135,8 +119,7 @@ Document:
 // file is safe because row ids are deduplicated before insert.
 ```
 
-Do not hide failure behavior in examples alone. If callers must handle it, state
-the rule directly.
+Do not hide failure behavior in examples alone. If callers must handle it, state the rule directly.
 
 ## Examples
 
@@ -149,23 +132,16 @@ Good examples are:
 - Focused on the behavior being documented.
 - Consistent with existing standards.
 
-Prefer examples for public APIs, configuration-sensitive behavior, error
-handling, and constraints with non-obvious inputs.
+Prefer examples for public APIs, configuration-sensitive behavior, error handling, and constraints with non-obvious inputs.
 
-Avoid examples that introduce unrelated language style, framework choices, or
-tooling policy.
+Avoid examples that introduce unrelated language style, framework choices, or tooling policy.
 
 ## Links And Duplication
 
 Use links instead of repeating rules owned by another standard.
 
-- Link to [the tooling standard](../tooling.md) for formatter, linter, runtime,
-  and toolchain choices.
-- Link to [the JavaScript standard](javascript.md) and
-  [the TypeScript standard](typescript.md) for language-specific implementation
-  style.
-- Link to [the JSDoc standard](jsdoc.md) for tag syntax and API documentation
-  mechanics.
+- Link to [the tooling standard](../tooling.md) for formatter, linter, runtime, and toolchain choices.
+- Link to [the JavaScript standard](javascript.md) and [the TypeScript standard](typescript.md) for language-specific implementation style.
+- Link to [the JSDoc standard](jsdoc.md) for tag syntax and API documentation mechanics.
 
-Do not add a link when a short local rule is clearer than making the reader
-leave the file.
+Do not add a link when a short local rule is clearer than making the reader leave the file.

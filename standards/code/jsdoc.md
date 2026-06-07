@@ -2,23 +2,15 @@
 
 ## Purpose
 
-Use JSDoc to make public JavaScript and TypeScript APIs easier to understand in
-source, editor hovers, and generated API documentation.
+Use JSDoc to make public JavaScript and TypeScript APIs easier to understand in source, editor hovers, and generated API documentation.
 
-Use this standard when writing JSDoc blocks for public APIs and related internal
-APIs. It covers approved and discouraged JSDoc tags, formatting conventions,
-examples, public API usage, deprecations, internal API usage, and links. It does
-not own general documentation philosophy, general JavaScript style, TypeScript
-type-safety rules, or formatter and linter choices.
+Use this standard when writing JSDoc blocks for public APIs and related internal APIs. It covers approved and discouraged JSDoc tags, formatting conventions, examples, public API usage, deprecations, internal API usage, and links. It does not own general documentation philosophy, general JavaScript style, TypeScript type-safety rules, or formatter and linter choices.
 
-Use [the code documentation standard](documentation.md) for documentation
-judgment, [the JavaScript standard](javascript.md) for JavaScript patterns, and
-[the TypeScript standard](typescript.md) for TypeScript type rules.
+Use [the code documentation standard](documentation.md) for documentation judgment, [the JavaScript standard](javascript.md) for JavaScript patterns, and [the TypeScript standard](typescript.md) for TypeScript type rules.
 
 ## Documentation Scope
 
-Document the public surface area when names and types do not fully communicate
-behavior.
+Document the public surface area when names and types do not fully communicate behavior.
 
 The public surface includes:
 
@@ -28,11 +20,9 @@ The public surface includes:
 - Exported constants when behavior, units, or meaning are not obvious.
 - Public modules and package entrypoints.
 
-Do not require JSDoc for private helpers, local variables, or implementation
-details. Add internal comments only when they prevent a likely misunderstanding.
+Do not require JSDoc for private helpers, local variables, or implementation details. Add internal comments only when they prevent a likely misunderstanding.
 
-Document re-exported symbols at the source. Do not duplicate API documentation
-across barrel files unless the re-export changes the public meaning.
+Document re-exported symbols at the source. Do not duplicate API documentation across barrel files unless the re-export changes the public meaning.
 
 ```ts
 // Avoid:
@@ -49,8 +39,7 @@ export { add } from "./math";
 
 Every public JSDoc block must start with a short behavior summary.
 
-The summary should say what the API does, not how it is implemented. Avoid
-summaries that only repeat the symbol name.
+The summary should say what the API does, not how it is implemented. Avoid summaries that only repeat the symbol name.
 
 ```ts
 // Avoid:
@@ -70,9 +59,7 @@ export function parseDuration(value: string): number {
 }
 ```
 
-Add paragraphs after the summary only when they explain constraints,
-guarantees, tradeoffs, examples, or failure modes that do not fit in one
-sentence.
+Add paragraphs after the summary only when they explain constraints, guarantees, tradeoffs, examples, or failure modes that do not fit in one sentence.
 
 ## Document Behavior, Not Obvious Types
 
@@ -91,8 +78,7 @@ Document these details when relevant:
 - Caching behavior.
 - Performance characteristics that affect usage.
 
-Do not restate obvious parameter names, TypeScript types, or implementation
-steps.
+Do not restate obvious parameter names, TypeScript types, or implementation steps.
 
 ```ts
 // Avoid:
@@ -121,43 +107,36 @@ export function formatBytes(bytes: number): string {
 
 Use tags only when they add information.
 
-| Tag | Use it for |
-| --- | --- |
-| `@param` | Constraints, units, formats, or non-obvious parameter meaning. |
-| `@returns` | Return semantics that need explanation. |
-| `@throws` | Caller-visible thrown errors and conditions. |
-| `@example` | Minimal usage examples. |
+| Tag           | Use it for                                                      |
+| ------------- | --------------------------------------------------------------- |
+| `@param`      | Constraints, units, formats, or non-obvious parameter meaning.  |
+| `@returns`    | Return semantics that need explanation.                         |
+| `@throws`     | Caller-visible thrown errors and conditions.                    |
+| `@example`    | Minimal usage examples.                                         |
 | `@deprecated` | Deprecation reason, replacement, and removal timing when known. |
-| `@see` | Related public APIs that deserve their own line. |
-| `@module` | Public module or package entrypoint documentation. |
+| `@see`        | Related public APIs that deserve their own line.                |
+| `@module`     | Public module or package entrypoint documentation.              |
 
-Use project-specific tags only when the documentation tool supports them and the
-tag adds information. Prefer prose over uncommon tags for ordinary extended
-explanation.
+Use project-specific tags only when the documentation tool supports them and the tag adds information. Prefer prose over uncommon tags for ordinary extended explanation.
 
 ## Discouraged Tags
 
 Avoid tags that repeat TypeScript syntax or add noise.
 
-- Do not use Closure-style type annotations in TypeScript files, such as
-  `@param {string} id`.
+- Do not use Closure-style type annotations in TypeScript files, such as `@param {string} id`.
 - Do not use `@param` when it only repeats the parameter name.
 - Do not use `@returns` when it only repeats the return type.
 - Do not use tags only to force TypeScript inference.
 - Do not use project-specific tags that generated docs ignore.
-- Do not use examples as the only place where required constraints or failure
-  modes are explained.
+- Do not use examples as the only place where required constraints or failure modes are explained.
 
-In JavaScript files, JSDoc type annotations may be useful because JavaScript does
-not have TypeScript syntax. Keep those annotations consistent with the same
-behavior rules in this standard.
+In JavaScript files, JSDoc type annotations may be useful because JavaScript does not have TypeScript syntax. Keep those annotations consistent with the same behavior rules in this standard.
 
 ## Parameters
 
 Use `@param` only when a parameter needs more than its name and type.
 
-Document a parameter when it has constraints, units, accepted formats,
-protocol-specific meaning, or non-obvious behavior.
+Document a parameter when it has constraints, units, accepted formats, protocol-specific meaning, or non-obvious behavior.
 
 ```ts
 // Avoid:
@@ -204,8 +183,7 @@ export function findUser(id: string): User | null {
 }
 ```
 
-Use `@throws` when a function throws for expected caller-visible conditions.
-Include the condition, not only the error class.
+Use `@throws` when a function throws for expected caller-visible conditions. Include the condition, not only the error class.
 
 ```ts
 /**
@@ -218,19 +196,15 @@ export function parseConfig(value: string): Config {
 }
 ```
 
-Also document failure-like results that do not throw, such as `null`,
-`undefined`, result variants, rejected promises, empty collections with special
-meaning, and partial success.
+Also document failure-like results that do not throw, such as `null`, `undefined`, result variants, rejected promises, empty collections with special meaning, and partial success.
 
 ## Examples
 
 Examples are part of the public API contract.
 
-Use `@example` when public API usage is not trivial. Examples should be minimal,
-realistic, copyable, runnable when possible, and TypeScript-valid.
+Use `@example` when public API usage is not trivial. Examples should be minimal, realistic, copyable, runnable when possible, and TypeScript-valid.
 
-Every `@example` must include a short title. Use `Basic usage.` when there is
-only one obvious case.
+Every `@example` must include a short title. Use `Basic usage.` when there is only one obvious case.
 
 ````ts
 /**
@@ -248,11 +222,9 @@ export function formatBytes(bytes: number): string {
 }
 ````
 
-Prefer one strong example over several redundant examples. Add more than one
-example only when the examples show meaningfully different use cases.
+Prefer one strong example over several redundant examples. Add more than one example only when the examples show meaningfully different use cases.
 
-Include imports and setup values when they are short enough to keep the example
-copyable.
+Include imports and setup values when they are short enough to keep the example copyable.
 
 ````ts
 /**
@@ -295,15 +267,13 @@ export function createUserSession(user: User): Session {
 }
 ```
 
-Do not deprecate an API without naming a replacement unless there is no
-replacement.
+Do not deprecate an API without naming a replacement unless there is no replacement.
 
 ## Links
 
 Use links to make related public APIs navigable.
 
-Use inline links in prose and `@see` for related APIs that deserve their own
-line.
+Use inline links in prose and `@see` for related APIs that deserve their own line.
 
 Common inline link forms:
 
@@ -328,8 +298,7 @@ Link to public symbols, not private helpers that generated docs cannot expose.
 
 ## Module Documentation
 
-Public modules and package entrypoints should have module-level documentation
-when generated docs benefit from context.
+Public modules and package entrypoints should have module-level documentation when generated docs benefit from context.
 
 Module documentation should explain:
 
@@ -354,20 +323,15 @@ Module documentation should explain:
  */
 ````
 
-Module-level documentation should reduce repeated per-symbol explanation. It
-should not become a README inside a source file.
+Module-level documentation should reduce repeated per-symbol explanation. It should not become a README inside a source file.
 
 ## Internal APIs
 
 Do not add JSDoc to private helpers by default.
 
-Use internal JSDoc only when a non-public API is still shared enough that future
-readers need generated or hover documentation. Prefer ordinary comments for
-local implementation constraints.
+Use internal JSDoc only when a non-public API is still shared enough that future readers need generated or hover documentation. Prefer ordinary comments for local implementation constraints.
 
-Internal documentation should follow the same behavior-first rules as public
-documentation. Do not use internal JSDoc to preserve history or describe obvious
-control flow.
+Internal documentation should follow the same behavior-first rules as public documentation. Do not use internal JSDoc to preserve history or describe obvious control flow.
 
 ## Formatting
 
@@ -380,8 +344,7 @@ Format JSDoc blocks consistently:
 - Use code spans for literal values, options, and symbols.
 - Keep examples fenced and titled.
 
-Do not use JSDoc as a formatting workaround. Formatter and linter choices belong
-in [the tooling standard](../tooling.md).
+Do not use JSDoc as a formatting workaround. Formatter and linter choices belong in [the tooling standard](../tooling.md).
 
 ## Review Checklist
 
@@ -396,5 +359,4 @@ Use this checklist before merging public API documentation:
 - Does every example have a useful title?
 - Are deprecated APIs marked with `@deprecated` and a replacement when possible?
 - Do links point to public APIs?
-- Does internal JSDoc explain non-obvious shared behavior instead of local
-  implementation steps?
+- Does internal JSDoc explain non-obvious shared behavior instead of local implementation steps?

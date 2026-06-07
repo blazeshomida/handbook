@@ -4,19 +4,11 @@
 
 Pull requests are the review interface for a change.
 
-Use a pull request to explain what changed, why it matters, how it was verified,
-and what reviewers should inspect before the change becomes project history.
+Use a pull request to explain what changed, why it matters, how it was verified, and what reviewers should inspect before the change becomes project history.
 
-Use this standard when writing, reviewing, or deciding whether to open a pull
-request. It covers pull request size, titles, bodies, visual proof, testing
-notes, linked issues, reviewability, breaking change notes, and when not to open
-or mark a pull request ready. It does not own commit format, the versioning
-algorithm, or the release process.
+Use this standard when writing, reviewing, or deciding whether to open a pull request. It covers pull request size, titles, bodies, visual proof, testing notes, linked issues, reviewability, breaking change notes, and when not to open or mark a pull request ready. It does not own commit format, the versioning algorithm, or the release process.
 
-Use [the commit standard](commits.md) for commit and pull request title format.
-Use [the versioning standard](versioning.md) for version-impact details. Use
-[the pull request template](../../templates/github/pull_request_template.md) for
-the copyable GitHub form.
+Use [the commit standard](commits.md) for commit and pull request title format. Use [the versioning standard](versioning.md) for version-impact details. Use [the pull request template](../../templates/github/pull_request_template.md) for the copyable GitHub form.
 
 ## Core Requirements
 
@@ -26,12 +18,10 @@ Every pull request must include:
 - A short summary of the change.
 - The important changes reviewers should understand.
 - Verification evidence.
-- Screenshots, recordings, demos, or output when behavior is visual or hard to
-  infer from text.
+- Screenshots, recordings, demos, or output when behavior is visual or hard to infer from text.
 - Breaking changes, migration notes, or risks when they exist.
 
-Do not rely on comments, commit bodies, or private context to explain the pull
-request. Keep the description current as the scope changes.
+Do not rely on comments, commit bodies, or private context to explain the pull request. Keep the description current as the scope changes.
 
 ## Title
 
@@ -41,11 +31,9 @@ Pull request titles must use the same title format as commits:
 <tag>(<scope[,scope...]>): <gitmoji> <title>
 ```
 
-The title should describe the primary reviewable change. For a single-commit
-pull request, the pull request title should usually match the commit title.
+The title should describe the primary reviewable change. For a single-commit pull request, the pull request title should usually match the commit title.
 
-For a multi-commit pull request, use the title that best describes the combined
-effect. Do not list every commit in the title.
+For a multi-commit pull request, use the title that best describes the combined effect. Do not list every commit in the title.
 
 ```txt
 Avoid:
@@ -69,12 +57,9 @@ feat(imports): ✨ add dry-run import preview
 
 Keep pull requests focused.
 
-A focused pull request changes one reviewable concern. It may include supporting
-tests, documentation, configuration, or cleanup when those changes are necessary
-to complete the concern.
+A focused pull request changes one reviewable concern. It may include supporting tests, documentation, configuration, or cleanup when those changes are necessary to complete the concern.
 
-Split a pull request when it mixes independent concerns, creates avoidable
-review risk, or requires different reviewers to approve unrelated changes.
+Split a pull request when it mixes independent concerns, creates avoidable review risk, or requires different reviewers to approve unrelated changes.
 
 ```txt
 Avoid:
@@ -88,8 +73,7 @@ Do:
 feat(imports): ✨ add dry-run import preview
 ```
 
-Use stacked or follow-up pull requests when a change cannot stay small without
-losing useful review order.
+Use stacked or follow-up pull requests when a change cannot stay small without losing useful review order.
 
 ## Body
 
@@ -105,8 +89,7 @@ Use this order unless another order makes the review easier:
 
 Omit sections that do not apply. Do not keep empty headings.
 
-The summary should explain the result of the change, not the process of making
-it.
+The summary should explain the result of the change, not the process of making it.
 
 ```md
 Avoid:
@@ -118,8 +101,7 @@ This pull request adds a dry-run import preview so users can inspect parsed rows
 before writing records.
 ```
 
-List important reviewable changes as concrete bullets. Do not turn the changes
-section into a file list; reviewers can see files in the diff.
+List important reviewable changes as concrete bullets. Do not turn the changes section into a file list; reviewers can see files in the diff.
 
 ```md
 - ✨ Adds a dry-run import mode that returns parsed rows without writing records.
@@ -131,8 +113,7 @@ section into a file list; reviewers can see files in the diff.
 
 Show how the change was checked.
 
-Include exact commands and relevant manual checks. A reviewer should be able to
-repeat the important verification without guessing.
+Include exact commands and relevant manual checks. A reviewer should be able to repeat the important verification without guessing.
 
 ````md
 ```sh
@@ -181,16 +162,13 @@ Do:
 ![Import preview showing 240 parsed rows and 3 validation warnings](./docs/import-preview.png)
 ```
 
-Do not use stale screenshots, decorative images, or cropped captures that hide
-the changed behavior.
+Do not use stale screenshots, decorative images, or cropped captures that hide the changed behavior.
 
 ## Linked Issues And Decisions
 
-Link related issues, discussions, specifications, incidents, or decisions when
-they explain required review context.
+Link related issues, discussions, specifications, incidents, or decisions when they explain required review context.
 
-Do not link issues as a substitute for summarizing the current change. The pull
-request body should still explain what changed and how it was verified.
+Do not link issues as a substitute for summarizing the current change. The pull request body should still explain what changed and how it was verified.
 
 Use closing keywords only when the pull request fully resolves the issue.
 
@@ -198,9 +176,7 @@ Use closing keywords only when the pull request fully resolves the issue.
 
 Make breaking changes visible.
 
-If a pull request changes a stable public API, data format, command, route,
-permission model, or user-visible behavior incompatibly, the title must use
-`BREAKING`.
+If a pull request changes a stable public API, data format, command, route, permission model, or user-visible behavior incompatibly, the title must use `BREAKING`.
 
 ```txt
 BREAKING(api): 💥 rename createClient
@@ -222,8 +198,7 @@ Call out risk when it changes review focus or rollout behavior.
 > handling carefully.
 ```
 
-Do not hide breaking changes or risk in comments after review has started.
-Update the pull request description.
+Do not hide breaking changes or risk in comments after review has started. Update the pull request description.
 
 ## When Not To Open Or Mark Ready
 
@@ -236,9 +211,7 @@ Do not open a normal ready-for-review pull request when:
 - Breaking changes or migration notes are known but not described.
 - Visual proof is required for review but not included.
 
-Use a draft pull request for early feedback, CI checks, or visible work in
-progress. A draft should still have a useful title and summary, and it should
-make the review status obvious.
+Use a draft pull request for early feedback, CI checks, or visible work in progress. A draft should still have a useful title and summary, and it should make the review status obvious.
 
 ```md
 > [!NOTE]
@@ -246,15 +219,13 @@ make the review status obvious.
 > progress.
 ```
 
-Convert a draft to ready for review only when the description, verification, and
-known blockers are current.
+Convert a draft to ready for review only when the description, verification, and known blockers are current.
 
 ## Follow-Ups
 
 Use follow-ups only for intentionally deferred work.
 
-A follow-up should be concrete enough to become an issue, pull request, or task.
-Do not use follow-ups to excuse incomplete required work.
+A follow-up should be concrete enough to become an issue, pull request, or task. Do not use follow-ups to excuse incomplete required work.
 
 ```md
 - Add import preview metrics in a follow-up pull request.
@@ -272,14 +243,14 @@ If a follow-up is required before merge, use a task list and keep it visible.
 
 Use GitHub Markdown features deliberately.
 
-| Feature | Use it for | Avoid |
-| --- | --- | --- |
-| Alerts | Breaking changes, warnings, rollout risk | Routine information |
-| Task lists | Merge blockers and reviewable remaining work | General notes |
-| Tables | Comparisons, matrices, before/after behavior | Long prose |
-| Images and GIFs | UI, CLI, docs, and generated output proof | Decoration |
-| Details blocks | Long logs or optional evidence | Hiding required context |
-| Emojis | Scan markers in lists and tables | Ambiguous decoration |
+| Feature         | Use it for                                   | Avoid                   |
+| --------------- | -------------------------------------------- | ----------------------- |
+| Alerts          | Breaking changes, warnings, rollout risk     | Routine information     |
+| Task lists      | Merge blockers and reviewable remaining work | General notes           |
+| Tables          | Comparisons, matrices, before/after behavior | Long prose              |
+| Images and GIFs | UI, CLI, docs, and generated output proof    | Decoration              |
+| Details blocks  | Long logs or optional evidence               | Hiding required context |
+| Emojis          | Scan markers in lists and tables             | Ambiguous decoration    |
 
 Do not make ordinary context look urgent.
 

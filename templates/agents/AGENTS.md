@@ -29,8 +29,7 @@
 - Prefer existing project patterns over new abstractions.
 - Do not rewrite existing files unless the requested behavior requires it.
 - Do not revert user changes unless explicitly asked.
-- Summarize changed files, verification, and any remaining risk before handing
-  work back.
+- Summarize changed files, verification, and any remaining risk before handing work back.
 
 Reference: [Commit Standard](https://github.com/blazeshomida/handbook/blob/main/standards/workflow/commits.md)
 
@@ -45,8 +44,7 @@ Reference: [TypeScript Standard](https://github.com/blazeshomida/handbook/blob/m
 
 ## Documentation
 
-- Document public API behavior, constraints, side effects, and failure modes
-  when names and signatures are not enough.
+- Document public API behavior, constraints, side effects, and failure modes when names and signatures are not enough.
 - Omit comments that repeat the code.
 - Keep examples minimal, realistic, and focused on the documented behavior.
 
@@ -55,8 +53,7 @@ Reference: [Code Documentation Standard](https://github.com/blazeshomida/handboo
 ## Testing And Checks
 
 - Run the smallest reliable checks that cover the change.
-- Run broader checks when touching shared behavior, public APIs, or release
-  paths.
+- Run broader checks when touching shared behavior, public APIs, or release paths.
 - If a check is not run, say so and explain why.
 
 Reference: [Tooling Standard](https://github.com/blazeshomida/handbook/blob/main/standards/tooling.md)

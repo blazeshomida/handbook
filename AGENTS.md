@@ -1,26 +1,21 @@
 # Agent Instructions
 
-This repo is the source of truth for reusable engineering standards and copyable
-file templates.
+This repo is the source of truth for reusable engineering standards and copyable file templates.
 
 ## Scope Control
 
 - Work only on the file or topic range explicitly assigned.
 - Do not create project-template content in this repo.
-- Use local references only as supporting input; do not copy reference material
-  wholesale.
-- When a dependency is missing, add a TODO only if the active file needs it to
-  stay accurate.
+- Use local references only as supporting input; do not copy reference material wholesale.
+- When a dependency is missing, add a TODO only if the active file needs it to stay accurate.
 
 ## File Ownership
 
 - Do not move a rule into a file that does not own it.
 - Keep README files as discovery surfaces, not as standards.
 - Keep templates as copyable files, not as new sources of policy.
-- Write standards and templates for people and agents who want to know how to
-  write the thing named by the file.
-- Leave existing files closed unless a dependency changes, review finds an
-  issue, or the owner explicitly asks for a revision.
+- Write standards and templates for people and agents who want to know how to write the thing named by the file.
+- Leave existing files closed unless a dependency changes, review finds an issue, or the owner explicitly asks for a revision.
 
 ## Editing Workflow
 
@@ -39,11 +34,9 @@ file templates.
 
 ## Review Expectations
 
-- Run light review after each file or small dependency group when changing
-  policy or templates.
+- Run light review after each file or small dependency group when changing policy or templates.
 - Light review checks scope drift, obvious duplication, contradictions, missing cross-links, and examples that conflict with existing standards.
-- Do not use light review for broad rewrites, exhaustive prose polish, or
-  unrelated new sections.
+- Do not use light review for broad rewrites, exhaustive prose polish, or unrelated new sections.
 
 ## Subagents
 

@@ -4,17 +4,9 @@
 
 Releases turn reviewed changes into versioned artifacts users can trust.
 
-Use this standard to run and review releases after version impact has already
-been classified. It covers the release checklist, changelog expectations,
-release notes expectations, release tags, publishing expectations, release
-artifacts, prerelease flow, and post-release verification. It does not own
-commit title format, version meaning, or pull request structure.
+Use this standard to run and review releases after version impact has already been classified. It covers the release checklist, changelog expectations, release notes expectations, release tags, publishing expectations, release artifacts, prerelease flow, and post-release verification. It does not own commit title format, version meaning, or pull request structure.
 
-Use [the commit standard](commits.md) for commit title format and release commit
-constraints. Use [the versioning standard](versioning.md) for version meaning
-and change classification. Use
-[the release notes template](../../templates/releases/release-notes.md) for
-copyable release note structure.
+Use [the commit standard](commits.md) for commit title format and release commit constraints. Use [the versioning standard](versioning.md) for version meaning and change classification. Use [the release notes template](../../templates/releases/release-notes.md) for copyable release note structure.
 
 ## Release Checklist
 
@@ -30,15 +22,13 @@ Before publishing a release:
 - Confirm release artifacts are complete.
 - Publish only after tags, artifacts, and notes can be kept consistent.
 
-Do not publish from a dirty tree unless the project has an explicit release mode
-that does not use the working tree as the source of truth.
+Do not publish from a dirty tree unless the project has an explicit release mode that does not use the working tree as the source of truth.
 
 ## Release Modes
 
 Each repository should choose one release mode.
 
-Use single-package mode when the repository releases one version for the whole
-repo.
+Use single-package mode when the repository releases one version for the whole repo.
 
 Single-package releases have:
 
@@ -54,9 +44,7 @@ Multi-package releases have:
 - One changelog per package.
 - One release tag per released package.
 
-Document the selected mode in the project release configuration or release docs.
-Do not mix single-package and multi-package release behavior without an explicit
-migration plan.
+Document the selected mode in the project release configuration or release docs. Do not mix single-package and multi-package release behavior without an explicit migration plan.
 
 ## Release Tags
 
@@ -90,9 +78,7 @@ v1
 core-1.2.3
 ```
 
-Do not publish a release without the expected tag. In normal release mode, tags
-should point to the release commit. In tag-only mode, tags should point to the
-source commit being released.
+Do not publish a release without the expected tag. In normal release mode, tags should point to the release commit. In tag-only mode, tags should point to the source commit being released.
 
 ## Release Artifacts
 
@@ -107,8 +93,7 @@ Typical release artifacts include:
 - Release notes when users need a readable summary.
 - Generated docs or API references when the project publishes them.
 
-Do not leave a repository in a state where tags, manifests, changelogs, release
-notes, and published artifacts disagree about the released version.
+Do not leave a repository in a state where tags, manifests, changelogs, release notes, and published artifacts disagree about the released version.
 
 ## Changelogs
 
@@ -138,16 +123,13 @@ Example grouping:
 - docs(guides): 📝 add README guide
 ```
 
-Use [the tooling standard](../tooling.md) for changelog tooling choices. Do not
-hand-edit generated changelog content unless the generated output is wrong and
-the source commit history or generator configuration is also fixed.
+Use [the tooling standard](../tooling.md) for changelog tooling choices. Do not hand-edit generated changelog content unless the generated output is wrong and the source commit history or generator configuration is also fixed.
 
 ## Release Notes
 
 Release notes are user-facing release communication.
 
-Write release notes when users need more than a generated changelog to
-understand impact, migration steps, risk, or upgrade value.
+Write release notes when users need more than a generated changelog to understand impact, migration steps, risk, or upgrade value.
 
 Release notes should include:
 
@@ -157,8 +139,7 @@ Release notes should include:
 - Known risks or compatibility notes.
 - Links to relevant docs, issues, or pull requests when useful.
 
-Do not use release notes to hide incorrect commit classification or version
-impact. Fix the commit or versioning source before release.
+Do not use release notes to hide incorrect commit classification or version impact. Fix the commit or versioning source before release.
 
 ## Publishing Expectations
 
@@ -174,19 +155,16 @@ Before publishing:
 
 After publishing:
 
-- Confirm the package, artifact, or deployment is visible in the expected
-  registry, host, or environment.
+- Confirm the package, artifact, or deployment is visible in the expected registry, host, or environment.
 - Confirm the published version matches the tag.
 - Confirm changelog and release notes point to the published version.
 - Confirm no unpublished local release changes remain.
 
-If any required artifact cannot be created, stop and repair the release before
-publishing.
+If any required artifact cannot be created, stop and repair the release before publishing.
 
 ## Prerelease Flow
 
-Use prereleases for early access, release candidates, compatibility testing, and
-coordinated ecosystem validation.
+Use prereleases for early access, release candidates, compatibility testing, and coordinated ecosystem validation.
 
 Prerelease flow should:
 
@@ -195,8 +173,7 @@ Prerelease flow should:
 - Keep changelog and release notes clear that the version is not stable.
 - Promote to a stable release only after prerelease validation is complete.
 
-Do not treat prereleases as a way to avoid documenting breaking changes or
-migration work.
+Do not treat prereleases as a way to avoid documenting breaking changes or migration work.
 
 ## Release Commits
 
@@ -235,8 +212,7 @@ In tag-only mode:
 - Release commits may be omitted.
 - Tags point to the source commit being released.
 
-Document tag-only mode before using it. Tag-only releases have weaker
-compatibility with ecosystem tooling that expects manifest versions.
+Document tag-only mode before using it. Tag-only releases have weaker compatibility with ecosystem tooling that expects manifest versions.
 
 ## Post-Release Verification
 
@@ -250,8 +226,7 @@ After release, verify:
 - Installation, import, or deployment smoke checks pass when applicable.
 - The repository has no leftover release changes.
 
-Treat failed post-release verification as release work. Fix the release state or
-publish a corrective release instead of leaving the inconsistency undocumented.
+Treat failed post-release verification as release work. Fix the release state or publish a corrective release instead of leaving the inconsistency undocumented.
 
 ## Review Checklist
 

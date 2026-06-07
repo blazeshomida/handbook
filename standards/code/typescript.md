@@ -2,28 +2,17 @@
 
 ## Purpose
 
-Use this standard for TypeScript-specific rules that extend
-[the JavaScript standard](javascript.md).
+Use this standard for TypeScript-specific rules that extend [the JavaScript standard](javascript.md).
 
-Use this standard when writing TypeScript APIs, boundary types, and type-driven
-control flow. It covers strict TypeScript, avoiding `any`, avoiding unsafe
-casts, fixing types at the source, `unknown` at boundaries, runtime validation
-at boundaries, `satisfies`, type imports and exports, generics, discriminated
-unions, and public API typing. It does not own general JavaScript style,
-formatter or linter choices, React-specific conventions, JSDoc mechanics, or
-long TypeScript tutorials.
+Use this standard when writing TypeScript APIs, boundary types, and type-driven control flow. It covers strict TypeScript, avoiding `any`, avoiding unsafe casts, fixing types at the source, `unknown` at boundaries, runtime validation at boundaries, `satisfies`, type imports and exports, generics, discriminated unions, and public API typing. It does not own general JavaScript style, formatter or linter choices, React-specific conventions, JSDoc mechanics, or long TypeScript tutorials.
 
-Use [the tooling standard](../tooling.md) for TypeScript tooling choices and
-[the code documentation standard](documentation.md) for public API documentation
-judgment.
+Use [the tooling standard](../tooling.md) for TypeScript tooling choices and [the code documentation standard](documentation.md) for public API documentation judgment.
 
 ## Strict TypeScript
 
 Prefer strict TypeScript for application and library code.
 
-Strictness should make invalid states visible while code is still local enough
-to fix. Do not weaken project-level type checking to work around one hard type.
-Fix the model, narrow the input, or isolate the boundary.
+Strictness should make invalid states visible while code is still local enough to fix. Do not weaken project-level type checking to work around one hard type. Fix the model, narrow the input, or isolate the boundary.
 
 ## Public API Typing
 
@@ -63,8 +52,7 @@ export function createImportJob(file: File): ImportJob {
 }
 ```
 
-Let simple local implementation details infer when the inferred type is obvious.
-Do not annotate every local variable by default.
+Let simple local implementation details infer when the inferred type is obvious. Do not annotate every local variable by default.
 
 ## Avoid `any`
 
@@ -93,15 +81,13 @@ function readPayload(value: unknown): Payload {
 }
 ```
 
-If `any` is unavoidable at a boundary, keep it local, convert it immediately,
-and do not let it spread into internal code.
+If `any` is unavoidable at a boundary, keep it local, convert it immediately, and do not let it spread into internal code.
 
 ## Unknown And Runtime Boundaries
 
 Use `unknown` at untrusted boundaries, then validate or narrow before use.
 
-Untrusted boundaries include request bodies, files, environment variables,
-database rows, third-party API responses, user input, and message payloads.
+Untrusted boundaries include request bodies, files, environment variables, database rows, third-party API responses, user input, and message payloads.
 
 ```ts
 export function parseWebhook(value: unknown): WebhookEvent {
@@ -113,8 +99,7 @@ export function parseWebhook(value: unknown): WebhookEvent {
 }
 ```
 
-Runtime validation belongs near the boundary. After validation, use names that
-make the state clear, such as `rawWebhookPayload` and `validatedWebhookEvent`.
+Runtime validation belongs near the boundary. After validation, use names that make the state clear, such as `rawWebhookPayload` and `validatedWebhookEvent`.
 
 Use [the tooling standard](../tooling.md) for validation library preferences.
 
@@ -130,11 +115,9 @@ const payload = value as Payload;
 const payload = parsePayload(value);
 ```
 
-Do not stack casts such as `value as unknown as Target`. That usually means the
-source type, boundary parser, or public API type needs to be fixed.
+Do not stack casts such as `value as unknown as Target`. That usually means the source type, boundary parser, or public API type needs to be fixed.
 
-Use a cast only when the runtime condition is already guaranteed and TypeScript
-cannot express it. Keep the cast close to the check that justifies it.
+Use a cast only when the runtime condition is already guaranteed and TypeScript cannot express it. Keep the cast close to the check that justifies it.
 
 ## Fix Types At The Source
 
@@ -142,17 +125,14 @@ Fix incorrect types where they originate.
 
 - Update the function signature instead of casting every caller.
 - Narrow boundary values before passing them deeper.
-- Add a missing return type to the public function instead of relying on inferred
-  exported shapes.
+- Add a missing return type to the public function instead of relying on inferred exported shapes.
 - Model variants directly instead of using broad strings or optional fields.
 
-Avoid local casts that make one call site compile while leaving the wrong type
-available elsewhere.
+Avoid local casts that make one call site compile while leaving the wrong type available elsewhere.
 
 ## `satisfies`
 
-Use `satisfies` when a value must conform to a shape without losing its specific
-literal information.
+Use `satisfies` when a value must conform to a shape without losing its specific literal information.
 
 ```ts
 const statusLabels = {
@@ -162,8 +142,7 @@ const statusLabels = {
 } satisfies Record<ImportStatus, string>;
 ```
 
-Prefer `satisfies` for configuration maps, lookup tables, and object literals
-where both completeness checking and precise value inference matter.
+Prefer `satisfies` for configuration maps, lookup tables, and object literals where both completeness checking and precise value inference matter.
 
 Do not use `satisfies` to hide an overly broad or incorrect target type.
 
@@ -177,11 +156,9 @@ import type { ImportJob } from "./jobs";
 export type { ImportJob } from "./jobs";
 ```
 
-Keep value imports and type imports distinct when that improves runtime clarity.
-Do not rely on a type import to create a runtime dependency.
+Keep value imports and type imports distinct when that improves runtime clarity. Do not rely on a type import to create a runtime dependency.
 
-Export public types deliberately. Avoid `export *` from internal modules when it
-makes accidental internals part of the public contract.
+Export public types deliberately. Avoid `export *` from internal modules when it makes accidental internals part of the public contract.
 
 ## Generics
 
@@ -193,8 +170,7 @@ function first<T>(values: readonly T[]): T | undefined {
 }
 ```
 
-Avoid generics that only make a function look flexible without improving caller
-safety.
+Avoid generics that only make a function look flexible without improving caller safety.
 
 ```ts
 // Avoid:
@@ -211,15 +187,12 @@ function parseJson(value: string): unknown {
 Name generic parameters after their role when a single-letter name is not clear.
 
 ```ts
-function mapById<Item extends { id: string }>(
-  items: readonly Item[],
-): Map<string, Item> {
+function mapById<Item extends { id: string }>(items: readonly Item[]): Map<string, Item> {
   return new Map(items.map((item) => [item.id, item]));
 }
 ```
 
-Keep public generic types readable. Hide necessary complexity behind named type
-aliases.
+Keep public generic types readable. Hide necessary complexity behind named type aliases.
 
 ## Discriminated Unions
 
@@ -234,8 +207,7 @@ type ImportResult =
 
 Prefer a stable discriminator such as `kind`, `type`, `status`, or `ok`.
 
-Use discriminated unions instead of parallel optional fields when each variant
-has different required data.
+Use discriminated unions instead of parallel optional fields when each variant has different required data.
 
 ```ts
 // Avoid:
@@ -250,8 +222,7 @@ When handling a union, check the discriminator first so narrowing is obvious.
 
 ## Interfaces And Type Aliases
 
-Prefer `interface` for public object shapes that may be implemented, extended,
-or composed with other object shapes.
+Prefer `interface` for public object shapes that may be implemented, extended, or composed with other object shapes.
 
 ```ts
 export interface ImportOptions {
@@ -260,16 +231,14 @@ export interface ImportOptions {
 }
 ```
 
-Use `type` for unions, primitives, tuples, mapped types, and aliases that are
-not object extension points.
+Use `type` for unions, primitives, tuples, mapped types, and aliases that are not object extension points.
 
 ```ts
 type ImportStatus = "queued" | "running" | "failed" | "completed";
 type CsvRow = readonly [name: string, email: string];
 ```
 
-Keep complex public types named and readable. A type that is hard to explain is
-usually hard to use correctly.
+Keep complex public types named and readable. A type that is hard to explain is usually hard to use correctly.
 
 ## Review Checklist
 

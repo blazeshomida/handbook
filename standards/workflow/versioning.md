@@ -4,16 +4,9 @@
 
 Versions communicate compatibility and change impact.
 
-Use this standard to classify changes and understand semantic version meaning.
-It covers patch, minor, and major classification; prerelease versions; breaking
-changes; unstable surface area; versioning examples; and the relationship
-between versions and commit tags. It does not own the full release checklist,
-release notes template, or publishing process.
+Use this standard to classify changes and understand semantic version meaning. It covers patch, minor, and major classification; prerelease versions; breaking changes; unstable surface area; versioning examples; and the relationship between versions and commit tags. It does not own the full release checklist, release notes template, or publishing process.
 
-Use [the commit standard](commits.md) for commit tags and title format. Use
-[the release standard](releases.md) for the release process. Use
-[the changeset template](../../templates/releases/changeset.md) for copyable
-change declarations.
+Use [the commit standard](commits.md) for commit tags and title format. Use [the release standard](releases.md) for the release process. Use [the changeset template](../../templates/releases/changeset.md) for copyable change declarations.
 
 ## Semantic Versioning
 
@@ -25,14 +18,13 @@ MAJOR.MINOR.PATCH
 
 Interpret version parts as:
 
-| Part | Meaning |
-| --- | --- |
-| `MAJOR` | A stable public API or behavior changed incompatibly. |
-| `MINOR` | A stable public feature or capability was added compatibly. |
+| Part    | Meaning                                                                                                           |
+| ------- | ----------------------------------------------------------------------------------------------------------------- |
+| `MAJOR` | A stable public API or behavior changed incompatibly.                                                             |
+| `MINOR` | A stable public feature or capability was added compatibly.                                                       |
 | `PATCH` | A compatible fix, documentation change, refactor, test change, tooling change, or unstable-surface change landed. |
 
-Version numbers should describe user-visible and maintainer-visible impact, not
-the amount of code changed.
+Version numbers should describe user-visible and maintainer-visible impact, not the amount of code changed.
 
 ## Commit Tags And Version Pressure
 
@@ -40,27 +32,24 @@ Commit tags create version pressure.
 
 Use this mapping:
 
-| Commit tag | Default version pressure |
-| --- | --- |
-| `BREAKING` | Major |
-| `feat` | Minor |
-| `fix` | Patch |
-| `perf` | Patch |
-| `deprecation` | Patch |
-| `docs` | Patch |
-| `refactor` | Patch |
-| `test` | Patch |
-| `style` | Patch |
-| `chore` | Patch |
+| Commit tag    | Default version pressure |
+| ------------- | ------------------------ |
+| `BREAKING`    | Major                    |
+| `feat`        | Minor                    |
+| `fix`         | Patch                    |
+| `perf`        | Patch                    |
+| `deprecation` | Patch                    |
+| `docs`        | Patch                    |
+| `refactor`    | Patch                    |
+| `test`        | Patch                    |
+| `style`       | Patch                    |
+| `chore`       | Patch                    |
 
-If version pressure is wrong, fix the commit classification before release.
-Do not use release notes, pull request text, or manual release intent to hide an
-incorrect commit tag.
+If version pressure is wrong, fix the commit classification before release. Do not use release notes, pull request text, or manual release intent to hide an incorrect commit tag.
 
 ## Patch Changes
 
-Use a patch version for compatible changes that should not require users to
-change how they call or depend on stable APIs.
+Use a patch version for compatible changes that should not require users to change how they call or depend on stable APIs.
 
 Patch changes include:
 
@@ -100,8 +89,7 @@ feat(imports): ✨ add dry-run import preview
 feat(cli): ✨ add json output mode
 ```
 
-Do not use `feat` for internal-only implementation changes that do not expose a
-new stable capability.
+Do not use `feat` for internal-only implementation changes that do not expose a new stable capability.
 
 ## Major Changes
 
@@ -111,8 +99,7 @@ Major changes include:
 
 - Removing or renaming a stable public API.
 - Changing required inputs or output shapes incompatibly.
-- Changing stable command, route, permission, or data format behavior
-  incompatibly.
+- Changing stable command, route, permission, or data format behavior incompatibly.
 - Removing a supported runtime, platform, or integration.
 - Changing defaults in a way that can break existing users.
 
@@ -123,32 +110,26 @@ BREAKING(api): 💥 rename createClient
 BREAKING(cli): 💥 remove legacy import command
 ```
 
-Breaking changes must be visible in the commit title with `BREAKING`. Do not
-hide breaking changes in commit bodies, pull request descriptions, or release
-notes.
+Breaking changes must be visible in the commit title with `BREAKING`. Do not hide breaking changes in commit bodies, pull request descriptions, or release notes.
 
 ## Unstable Surface Area
 
 Use the `unstable` scope modifier for non-stable surface area.
 
-When `unstable` appears first in the scope path or scope list, that commit
-creates patch pressure even if the tag is `feat` or `BREAKING`.
+When `unstable` appears first in the scope path or scope list, that commit creates patch pressure even if the tag is `feat` or `BREAKING`.
 
 ```txt
 feat(unstable/parser): ✨ add draft streaming API
 BREAKING(unstable/parser): 💥 rename draft streaming API
 ```
 
-The `unstable` modifier does not make an invalid commit valid, and it does not
-hide breaking changes to stable APIs.
+The `unstable` modifier does not make an invalid commit valid, and it does not hide breaking changes to stable APIs.
 
-If one release target contains both stable and unstable work, stable version
-pressure wins for that target.
+If one release target contains both stable and unstable work, stable version pressure wins for that target.
 
 ## Prerelease Versions
 
-Use prerelease versions for versions that should be available before a stable
-release but should not carry stable compatibility expectations.
+Use prerelease versions for versions that should be available before a stable release but should not carry stable compatibility expectations.
 
 Prerelease identifiers attach to a normal semantic version:
 
@@ -164,21 +145,19 @@ Use prereleases for:
 - Compatibility testing before a major release.
 - Coordinated ecosystem testing.
 
-Prereleases do not remove the need to classify the underlying change. A
-prerelease for a breaking stable change still points toward a major stable
-version.
+Prereleases do not remove the need to classify the underlying change. A prerelease for a breaking stable change still points toward a major stable version.
 
 ## Change Classification Examples
 
-| Change | Commit title | Version pressure |
-| --- | --- | --- |
-| Fix empty CSV parsing | `fix(parser): 🐛 handle empty CSV rows` | Patch |
-| Add a stable import preview | `feat(imports): ✨ add dry-run import preview` | Minor |
-| Rename a stable client API | `BREAKING(api): 💥 rename createClient` | Major |
-| Add a draft parser API | `feat(unstable/parser): ✨ add draft streaming API` | Patch |
-| Rename a draft parser API | `BREAKING(unstable/parser): 💥 rename draft streaming API` | Patch |
-| Update documentation | `docs(guides): 📝 document import workflow` | Patch |
-| Deprecate a stable API | `deprecation(api): 📝 deprecate legacy client factory` | Patch |
+| Change                      | Commit title                                               | Version pressure |
+| --------------------------- | ---------------------------------------------------------- | ---------------- |
+| Fix empty CSV parsing       | `fix(parser): 🐛 handle empty CSV rows`                    | Patch            |
+| Add a stable import preview | `feat(imports): ✨ add dry-run import preview`             | Minor            |
+| Rename a stable client API  | `BREAKING(api): 💥 rename createClient`                    | Major            |
+| Add a draft parser API      | `feat(unstable/parser): ✨ add draft streaming API`        | Patch            |
+| Rename a draft parser API   | `BREAKING(unstable/parser): 💥 rename draft streaming API` | Patch            |
+| Update documentation        | `docs(guides): 📝 document import workflow`                | Patch            |
+| Deprecate a stable API      | `deprecation(api): 📝 deprecate legacy client factory`     | Patch            |
 
 ## Review Checklist
 
@@ -190,7 +169,5 @@ Use this checklist when classifying version impact:
 - Is the commit tag aligned with the highest version pressure in the change?
 - Is every breaking stable change marked with `BREAKING`?
 - Is `unstable` first in the scope when used?
-- Are docs, tests, style, refactors, chores, and deprecations treated as patch
-  pressure unless they hide stable behavior changes?
-- Are prerelease versions still tied to the underlying major, minor, or patch
-  classification?
+- Are docs, tests, style, refactors, chores, and deprecations treated as patch pressure unless they hide stable behavior changes?
+- Are prerelease versions still tied to the underlying major, minor, or patch classification?
